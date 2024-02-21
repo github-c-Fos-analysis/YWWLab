@@ -8,7 +8,7 @@ t3_idx = 4;
 t4_idx = 5;
 %
 toplot_co = [];
-for fn = 1:size(fn_idx1,1)%读取行数逗号后的1表示行，列用2表示
+for fn = 1:size(fn_idx1,1)
     %load 
     load(fn_idx1{fn,mat_idx});
     tmp = sum(recordingFile.emg,1);
@@ -30,7 +30,6 @@ for fn = 1:size(fn_idx2,1)
     tmp = sum(recordingFile.emg,1);
     figure
     win = [fn_idx2{fn,t1_idx}:fn_idx2{fn,t4_idx}];
-%     tmp = smooth(eegRatio,50);
     tmp = tmp(win);
     plot(win,tmp),hold on
     plot([fn_idx2{fn,t2_idx} fn_idx2{fn,t2_idx}],[0 max(tmp)],'r--','lineWidth',1.5)
